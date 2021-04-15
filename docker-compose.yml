@@ -1,6 +1,6 @@
 services:
   details:
     build: .
-    image: ghcr.io/pawatmunkong/bookinfo-details:prd
+    image: ghcr.io/pawatmunkong/bookinfo-details:dev
     ports:
       - "9080:9080"
