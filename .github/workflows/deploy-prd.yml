@@ -23,13 +23,13 @@ jobs:
         uses: deliverybot/helm@v1
         with:
           helm: helm3
-          release: bookinfo-prd-ratings
+          release: bookinfo-prd-details
           namespace: student74-bookinfo-prd
           chart: k8s/helm
-          value-files: k8s/helm-values/values-bookinfo-prd-ratings.yaml
+          value-files: k8s/helm-values/values-bookinfo-prd-details.yaml
           values: |
             {
-              "ratings": {
+              "details": {
                 "tag": "${{ github.event.inputs.deploy-version }}"
               },
               "extraEnv": {
@@ -41,5 +41,5 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: acceptance test
-        run: curl http://bookinfo.opsta.net/student74/ratings/health | grep "Ratings is working!!!" && echo $?
+        run: curl http://bookinfo.opsta.net/student74/details/health | grep "Details is working!!!" && echo $?
         
